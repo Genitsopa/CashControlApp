@@ -1,0 +1,64 @@
+   <nav class="navbar-expand-lg navbar-light shadow">
+     <div class="navbar container d-flex justify-content-between align-items-center">
+  
+        <a class="navbar-brand text-success logo h1 align-self-center" href="http://localhost:5039/Dashboard">
+            CashControl
+        </a>
+  
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+  
+        <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
+            <div class="flex-fill">
+                <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
+                  
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://localhost:4200/login">LogOut</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="navbar align-self-center d-flex">
+                <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="inputMobileSearch" placeholder="Search ...">
+                        <div class="input-group-text">
+                            <i class="fa fa-fw fa-search"></i>
+                        </div>
+                    </div>
+                </div>
+            
+               
+            </div>
+        </div>
+  
+     </div>
+  </nav>
+
+
+  <div class="page">
+    <div class="container">
+        <div class="main-container">
+            <div class="selection-cont">
+                <select #c1 name="" id="country1" (mouseleave)="changebase(c1.value)">
+                    <option value="USD">US Dollar</option>
+                    <option value="INT">Indian Rupee</option>
+                    <option value="EUR">Euro</option>
+                </select>
+                <p>to</p>
+                <select #c2 name="" id="country1" (mouseleave)="tocountry(c2.value)">
+                    <option value="USD">US Dollar</option>
+                    <option value="INT">Indian Rupee</option>
+                    <option value="EUR">Euro</option>
+                </select>
+            </div>
+            <button (click)="convert()">Submit</button>
+            <div class="result-container">
+                <p>1 {{base}}</p>
+                <p>=</p>
+                <p>{{result}} {{cont2}}</p>
+            </div>
+        </div>
+    </div>
+    </div>
+    

@@ -1,0 +1,21 @@
+﻿@using Microsoft.AspNetCore.Identity
+
+
+<ul class="navbar nav justify-content-end">
+
+    <li class="nav-item">
+        <button class="nav-link btn btn-link text-decoration-none fw-bold"  onclick="logout()">Logout</button>
+        
+    </li>
+
+
+    <script>function logout() {
+            // Perform logout action
+            fetch('/logout', { method: 'POST' })
+                .then(() => {
+                    // Redirect to the login page after logout
+                    window.location.href = 'http://localhost:4200/login';
+                });
+        }</script>
+
+</ul>

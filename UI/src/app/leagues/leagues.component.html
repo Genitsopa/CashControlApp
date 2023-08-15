@@ -1,0 +1,21 @@
+<h2>Leagues</h2>
+
+<ul>
+  <li *ngFor="let league of leagues">
+    {{ league.name }} - {{ league.state }}
+    <button (click)="updateLeague(league)">Update</button>
+    <button (click)="deleteLeague(league.id)">Delete</button>
+  </li>
+</ul>
+
+<form (ngSubmit)="createLeague(form.value)">
+  <div>
+    <label>Name:</label>
+    <input type="text" name="name" required [(ngModel)]="form.name">
+  </div>
+  <div>
+    <label>State:</label>
+    <input type="text" name="state" required [(ngModel)]="form.state">
+  </div>
+  <button type="submit">Create</button>
+</form>

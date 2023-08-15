@@ -1,0 +1,3 @@
+.bordert::after {
+    content: "or connect with" !important;
+}

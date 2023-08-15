@@ -1,0 +1,29 @@
+﻿<Properties StartupConfiguration="{2CF2F6CD-C335-4CB3-8F15-9DA0B1F4F038}|CashControlBack">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.CashControl PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/UserController.cs">
+    <Files>
+      <File FileName="Controllers/DashboardController.cs" />
+      <File FileName="Controllers/UserController.cs" Line="174" Column="14" />
+      <File FileName="appsettings.json" Line="11" Column="97" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="CashControlBack" expanded="True">
+            <Node name="CashControl" expanded="True">
+              <Node name="Dependencies" expanded="True" />
+              <Node name="Controllers" expanded="True" />
+            </Node>
+            <Node name="FinancialApp" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+</Properties>
