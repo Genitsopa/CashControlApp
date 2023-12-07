@@ -1,0 +1,24 @@
+﻿@model List<CashControl.Context.Team>
+@{
+
+}
+
+<table class="table table-striped table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>
+                    <a href="@Url.Action("Team", new { item.ID, item.Name })" class="btn btn-primary">Edit</a>
+                    <a href="@Url.Action("Delete", new { item.ID })" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

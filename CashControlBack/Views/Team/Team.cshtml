@@ -1,0 +1,28 @@
+﻿@model CashControl.Context.Team
+@{
+
+}
+
+<style>
+    .error {
+        color: red;
+    }
+</style>
+
+@using (Html.BeginForm("AddTeam", "Team", FormMethod.Post))
+{
+    <div class="container">
+        <div class="form-group">
+            @Html.HiddenFor(x => x.ID)
+            <label>Name</label>
+            @Html.ValidationMessageFor(x => x.Name, "", new { @class = "error" })
+            @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-danger">Cancel</button>
+        </div>
+    </div>
+
+}

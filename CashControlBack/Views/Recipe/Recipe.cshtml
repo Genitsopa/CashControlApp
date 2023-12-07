@@ -1,0 +1,50 @@
+﻿@model CashControl.Context.Recipe
+
+<style>
+    .error {
+        color: red;
+    }
+</style>
+
+@using (Html.BeginForm("AddRecipe", "Recipe", FormMethod.Post))
+{
+    <div class="container">
+        <div class="form-group">
+            @Html.HiddenFor(x => x.ID)
+            <label>RecipeId</label>
+            @Html.ValidationMessageFor(x => x.ID, "", new { @class = "error" })
+            @Html.TextBoxFor(x => x.ID, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.HiddenFor(x => x.ID)
+            <label>Title</label>
+            @Html.ValidationMessageFor(x => x.Title, "", new { @class = "error" })
+            @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>Difficulty</label>
+            @Html.ValidationMessageFor(x => x.Difficulty, "", new { @class = "error" })
+            @Html.TextBoxFor(x => x.Difficulty, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <label>Associated Chef</label>
+            <br>
+            @if (ViewBag.ChefList != null)
+            {
+                @Html.DropDownListFor(x => x.Chef_ID, new SelectList(ViewBag.ChefList, "ID", "Name","BirthYear", ViewBag.SelectedChef), "-- Select Chef --", new { @class = "form-control" })
+            }
+            else
+            {
+                <p class="success-message">Chef has been saved successfully!</p>
+            }
+        </div>
+
+        <br>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-danger">Cancel</button>
+        </div>
+    </div>
+}

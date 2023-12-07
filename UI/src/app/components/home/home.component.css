@@ -160,6 +160,11 @@
     width: 6px;
     height: 6px;
   }
+
+  .footer {
+    display: flex;
+    flex-direction: row;
+  }
   
   @media (min-width: 576px) {
     .tempaltemo-carousel .h1 { font-size: 1em !important;}

@@ -1,4 +1,5 @@
 ﻿using System;
+using CashControl.Context;
 using Microsoft.EntityFrameworkCore;
 
 namespace CashControlBack.Models
@@ -9,12 +10,18 @@ namespace CashControlBack.Models
 		{
 
 		}
-			
 
-		public DbSet<Transaction> Transactions { get; set; }
+        public DbSet<Transaction> Transactions { get; set; }
 		public DbSet<Category> Categories { get; set; }
-        public object Leagues { get; internal set; }
-        public object Teams { get; internal set; }
+
+        public DbSet<Team> Team { get; set; }
+
+        public DbSet<Player> Player { get; set; }
+
+		public DbSet<Chef> Chef { get; set; }
+
+		public DbSet<Recipe> Recipe { get; set; }
+
     }
 }
 

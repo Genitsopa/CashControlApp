@@ -15,8 +15,6 @@ namespace CashControl.Context
         public DbSet<Company> Companies{ get; set; }
         public DbSet<CompanyProduct> CompanyProducts { get; set; }
         public DbSet<SalesRecord> SalesRecords { get; set; }
-        public DbSet<League> Leagues { get; set; }
-        public DbSet<Team> Teams { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

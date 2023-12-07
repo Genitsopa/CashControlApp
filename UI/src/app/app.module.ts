@@ -18,12 +18,10 @@ import { environment } from 'src/environments/environment';
 import { NgToastModule } from 'ng-angular-popup';
 import { ResetComponent } from './components/reset/reset.component';
 import { CompanyApiRequest } from './services/CompanyApiRequest.service';
-import { LeaguesComponent } from './leagues/leagues.component';
-import { TeamsComponent } from './teams/teams.component';
 
 @NgModule({
 
-  declarations: [AppComponent,LoginComponent, SignupComponent, DashboardComponent, CompanyComponent, CompanyLoginComponent, CompanySignupComponent,ConverterComponent,HomeComponent, ResetComponent, LeaguesComponent, TeamsComponent],
+  declarations: [AppComponent,LoginComponent, SignupComponent, DashboardComponent, CompanyComponent, CompanyLoginComponent, CompanySignupComponent,ConverterComponent,HomeComponent, ResetComponent],
 
   imports: [
     BrowserModule,

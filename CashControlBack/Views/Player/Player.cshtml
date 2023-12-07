@@ -1,0 +1,48 @@
+﻿@model CashControl.Context.Player
+
+<style>
+    .error {
+        color: red;
+    }
+</style>
+
+@using (Html.BeginForm("AddPlayer", "Player", FormMethod.Post))
+{
+    <div class="container">
+        <div class="form-group">
+            @Html.HiddenFor(x => x.ID)
+            <label>Name</label>
+            @Html.ValidationMessageFor(x => x.Name, "", new { @class = "error" })
+            @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>Number</label>
+            @Html.ValidationMessageFor(x => x.Number, "", new { @class = "error" })
+            @Html.TextBoxFor(x => x.Number, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>BirthYear</label>
+            @Html.ValidationMessageFor(x => x.BirthYear, "", new { @class = "error" })
+            @Html.TextBoxFor(x => x.BirthYear, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>Associated Team</label>
+            <br>
+            @if (ViewBag.TeamList != null)
+            {
+                @Html.DropDownListFor(x => x.Team_ID, new SelectList(ViewBag.TeamList, "ID", "Name", ViewBag.SelectedTeam), "-- Select Team --", new { @class = "form-control" })
+            }
+            else
+            {
+                <p class="success-message">Team has been saved successfully</p>
+            }
+        </div>
+
+
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-danger">Cancel</button>
+        </div>
+    </div>
+}

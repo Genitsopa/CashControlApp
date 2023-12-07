@@ -1,0 +1,126 @@
+﻿@model List<CashControl.Context.Recipe>
+
+@{
+    ViewData["Title"] = "Recipe List";
+}
+
+<div class="container">
+    <h2>Recipe List</h2>
+
+    <table class="table table-striped table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>RecipeId</th>
+                <th>Title</th>
+                <th><a asp-action="RecipeList" asp-route-sortOrder="@ViewBag.DifficultySortParam">Difficulty</a></th>
+                <th><a asp-action="ChefList" asp-route-sortOrder="@ViewBag.ChefSortParam">Name</a></th>
+                <th>Chef</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.ID</td>
+                    <td>@item.Title</td>
+                    <td>@item.Difficulty</td>
+                    <td>@item.AssociatedChef.Name</td>
+                    <td>@item.Chef_ID</td>
+                    <td>
+                        <a href="@Url.Action("Recipe", "Recipe", new { ID = item.ID })" class="btn btn-primary">Edit</a>
+                        <a href="@Url.Action("Delete", new { item.ID })" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="container">
+
+        <!-- Add a search form -->
+        <form method="get" action="@Url.Action("FilterRecipesByChefName", "Recipe")">
+            <div class="form-group">
+                <label for="chefName">Search by Chef Name:</label>
+                <input type="text" class="form-control" id="chefName" name="chefName">
+            </div>
+            <br />
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+
+        <table class="table table-striped table-hover">
+            <!-- ... Rest of your table ... -->
+        </table>
+    </div>
+
+    <div id="filtered-recipe-list">
+        <!-- This is where the filtered recipe list will be displayed -->
+    </div>
+
+    <div class="container">
+
+        <!-- Add a search form for filtering by difficulty -->
+        <form method="get" action="@Url.Action("FilterRecipesByDifficulty", "Recipe")">
+            <div class="form-group">
+                <label for="difficulty">Search by Difficulty:</label>
+                <input type="text" class="form-control" id="difficulty" name="difficulty">
+            </div>
+            <br />
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+
+        <table class="table table-striped table-hover">
+            <!-- ... Rest of your table ... -->
+        </table>
+    </div>
+
+    <div id="filtered-recipe-list">
+        <!-- This is where the filtered recipe list will be displayed -->
+    </div>
+
+</div>
+
+<script>
+    $(document).ready(function () {
+        $(".team-filter").click(function () {
+            var teamId = $(this).data("teamid");
+
+            // Send an AJAX request to fetch players from the selected team
+            $.ajax({
+                url: "@Url.Action("FilterRecipesByChefName", "Recipe")",
+                type: "GET",
+                data: { chefName: teamId },
+                success: function (data) {
+                    // Update the recipe list with the filtered data
+                    $("#filtered-recipe-list").html(data);
+                },
+                error: function () {
+                    alert("Error occurred while fetching recipes.");
+                }
+            });
+        });
+    });
+</script>
+
+
+<script>
+    $(document).ready(function () {
+        $(".team-filter").click(function () {
+            var teamId = $(this).data("teamid");
+
+            // Send an AJAX request to fetch recipes based on difficulty
+            $.ajax({
+                url: "@Url.Action("FilterRecipesByDifficulty", "Recipe")",
+                type: "GET",
+                data: { difficulty: teamId },
+                success: function (data) {
+                    // Update the recipe list with the filtered data
+                    $("#filtered-recipe-list").html(data);
+                },
+                error: function () {
+                    alert("Error occurred while fetching recipes.");
+                }
+            });
+        });
+    });
+</script>

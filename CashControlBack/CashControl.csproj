@@ -33,6 +33,5 @@
     <Folder Include="Views\Dashboard\" />
     <Folder Include="Views\Transaction\" />
     <Folder Include="Views\RoleViews\" />
-    <Folder Include="Context\" />
   </ItemGroup>
 </Project>
